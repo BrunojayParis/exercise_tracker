@@ -24,8 +24,8 @@ router.post('/add', async (req,res)=>{
     .catch(err => res.status(400).json(err));
 });
 
-router.delete('/:id',(req,res)=>{
-    Exercise.findByIdAndDelete(req.params.id)
+router.delete('/:id',async(req,res)=>{
+   Exercise.findByIdAndDelete(req.params.id)
     .then(()=> res.json('Exercise deleted'))
     .catch(err => res.status(400).json(err));
 });
