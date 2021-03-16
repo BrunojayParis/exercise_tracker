@@ -7,9 +7,9 @@ router.get('/',(req,res)=>{
     .catch(err => res.status(400).json(err))
 });
 
-router.post('/add', (req,res)=>{
-    const username = req.body.userName;
-    const newUser = new User({username});
+router.post('/add', async (req,res)=>{
+    const userName = await req.body.userName;
+    const newUser = new User({userName});
     newUser.save()
     .then(()=> res.json('User added!'))
     .catch(err => res.status(400).json(err)) 

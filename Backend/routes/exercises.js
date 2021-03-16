@@ -7,11 +7,11 @@ router.get('/', (req,res)=>{
     .catch(err => res.status(400).json(err));
 });
 
-router.post('/add', (req,res)=>{
-    const userName = req.body.userName;
-    const description = req.body.description;
-    const duration = req.body.duration;
-    const date = Date.parse(req.body.date);
+router.post('/add', async (req,res)=>{
+    const userName = await req.body.userName;
+    const description = await req.body.description;
+    const duration = await req.body.duration;
+    const date = await Date.parse(req.body.date);
 
     const newExercise = new Exercise({
         userName,
