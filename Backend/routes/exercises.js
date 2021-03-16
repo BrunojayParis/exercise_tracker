@@ -13,7 +13,7 @@ router.post('/add', async (req,res)=>{
     const duration = await req.body.duration;
     const date = await Date.parse(req.body.date);
 
-    const newExercise = new Exercise({
+    const newExercise = new Exercise({      
         userName,
         description,
         duration,
@@ -24,7 +24,7 @@ router.post('/add', async (req,res)=>{
     .catch(err => res.status(400).json(err));
 });
 
-router.delete('/:id',async(req,res)=>{
+router.delete('/:id',(req,res)=>{
    Exercise.findByIdAndDelete(req.params.id)
     .then(()=> res.json('Exercise deleted'))
     .catch(err => res.status(400).json(err));
