@@ -11,7 +11,7 @@ import CreateUser from "./components/CreateUser";
 function App() {
   return (
     <Router>
-      <div className="conteiner">
+      <div className="py-10">
         <Navbar />
         <div>
           {/* A <Switch> looks through its children <Route>s and
