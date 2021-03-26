@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -25,15 +25,13 @@ const Navbar = () => {
               </svg>
               <ul className="hidden md:flex space-x-10">
                 <li>
-                  <Link className="hover:bg-red-700" to="/">
-                    Home
-                  </Link>
+                  <Link className="nav-link" to="/">Exercises</Link>
                 </li>
                 <li>
-                  <Link to="/about">About</Link>
+                  <Link className="nav-link" to="/create">Create Exercise</Link>
                 </li>
                 <li>
-                  <Link to="/users">Users</Link>
+                  <Link className="nav-link" to="/users">Create User</Link>
                 </li>
               </ul>
             </div>
