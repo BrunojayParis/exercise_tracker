@@ -2,35 +2,31 @@ import React, { useState } from "react";
 
 const CreateExercise = () => {
   //Hooks
-  const [exercise, setExercise] = useState({
-    userName: "",
-    description: "",
-    duration: 0,
-    date: new Date(),
-  });
+  const [userName, setUser] = useState("");
+  const [description, SetDescription] = useState("");
+  const [duration, setDuration] = useState(0);
 
   //Functions
 
   const addUsername = (e) => {
-    setExercise({
-      userName: e.target.value,
-    });
+    setUser(e.target.value);
   };
   const addDescription = (e) => {
-    setExercise({
-      description: e.target.value,
-    });
+    SetDescription(e.target.value);
   };
   const addDuration = (e) => {
-    setExercise({
-      duration: e.target.value,
-    });
+    setDuration(e.target.value)
   };
-  const addDate = (date) => {
-    setExercise({
-      date: date,
-    });
-  };
+  const submitButton = (e)=>{
+    e.preventDefault();
+    const exercise ={
+      username: userName,
+      description: description,
+      duration: duration
+    };
+    console.log(exercise)
+
+  }
 
   return (
     <div className="flex flex-col m-5 justify-start">
@@ -43,6 +39,7 @@ const CreateExercise = () => {
         <label>Duration</label>
         <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" onChange={addDuration} />
       </form>
+      <input className="inline-block px-6 py-2 text-xs font-medium leading-6 text-center text-white uppercase transition bg-black rounded shadow ripple waves-light hover:shadow-lg focus:outline-none hover:bg-gray-400" type="button" value="submit" onClick={submitButton}/>
     </div>
   );
 };
